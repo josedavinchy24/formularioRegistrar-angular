@@ -1,0 +1,67 @@
+
+<form class="row g-3 needs-validation formulario" #registroForm="ngForm" (ngSubmit)="onSubmit()">
+  <h2>REGISTRO</h2>
+    <div class="col-md-4 div2">
+        <label for="validationCustom01" class="form-label">NOMBRE</label>
+        <input type="text" class="form-control" name="nombre" #nombre="ngModel" [(ngModel)]="registro.nombre" required minlength="4" maxlength="15">
+          <span class="text-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">- El nombre es obligatorio <br> - Debe tener de 4 a 15 caracteres</span>
+      </div>
+      <div class="col-md-4">
+        <label for="validationCustom02" class="form-label">APELLIDO</label>
+        <input type="text" class="form-control" id="validationCustom02" name="apellido" #apellido="ngModel" [(ngModel)]="registro.apellido" required minlength="4" maxlength="15">
+          <span class="text-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">- El apellido es obligatorio <br> - Debe tener de 4 a 15 caracteres</span>
+      </div>
+      <br>
+      <div class="col-md-4 div2">
+        <label for="validationCustomUsername" class="form-label">NOMBRE USUARIO</label>
+        <div class="input-group has-validation usern">
+          <span class="input-group-text" id="inputGroupPrepend">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+          </svg>
+        
+        </span>
+          <input type="text" class="form-control" name="nombreUsuario" #nombreUsuario="ngModel" [(ngModel)]="registro.nombreUsuario" required minlength="4" maxlength="15">
+        </div>
+          
+          <span class="text-danger" *ngIf="nombreUsuario.invalid && (nombreUsuario.dirty || nombreUsuario.touched)">- El usuario es obligatorio <br> - Debe tener de 4 a 15 caracteres</span>
+      </div>
+      <div class="col-md-6">
+        <label for="exampleFormControlInput1" class="form-label">CORREO</label>
+        <input type="email" class="form-control" name="correo" #correo="ngModel" [(ngModel)]="registro.correo" required />
+          <span class="text-danger" *ngIf="(correo.dirty || correo.touched ) && correo.invalid">- El correo es obligatorio</span>
+      </div>
+
+      <div class="col-md-3 div2">
+        <label for="validationCustom04" class="form-label">EDITORIAL</label>
+        <select class="form-select" name="editorial" #editorial="ngModel" [(ngModel)]="registro.editorial" required>
+          <option selected disabled value=""></option>
+          <option value="MARVEL">MARVEL</option>
+            <option value="DC">DC</option>
+        </select>
+          <span class="text-danger" *ngIf="(editorial.dirty || editorial.touched ) && editorial.invalid">- La editorial es obligatoria</span>
+      </div>
+      <div class="col-md-3">
+        <label for="exampleInputPassword1" class="form-label">CONTRASEÑA</label>
+        <input type="password" class="form-control" name="contasena" #contasena="ngModel" [(ngModel)]="registro.contrasena" required minlength="4">
+          
+          <span class="text-danger" *ngIf="(contasena.dirty || contasena.touched ) && contasena.invalid">- La contaseña es obligatoria <br> - Debe tener minimo 4 caracteres</span>
+        
+      </div>
+      
+        <button class="btn btn-dark boton" type="submit"value="Enviar" [disabled]="!registroForm.form.valid">ENVIAR</button>
+     
+    </form>
+  
+
+
+
+
+
+
+
+
+
+
+ 
